@@ -9,6 +9,9 @@ public class PhoneNumberMatcher {
     }
 
     boolean isValid() {
-        return phoneNumber.matches("\\(?\\d\\d\\d\\)?-?\\d\\d\\d-\\d\\d\\d\\d");
+        String threeDigits = "\\d\\d\\d";
+        String fourDigits = "\\d\\d\\d\\d";
+        String areaCode = "\\(?" + threeDigits + "\\)?-?";
+        return phoneNumber.matches(areaCode + threeDigits + "-" + fourDigits);
     }
 }
