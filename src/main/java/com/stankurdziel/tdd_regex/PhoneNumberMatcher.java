@@ -4,14 +4,16 @@ public class PhoneNumberMatcher {
 
     private final String phoneNumber;
 
-    PhoneNumberMatcher(String phoneNumber) {
+    public PhoneNumberMatcher(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
-    boolean isValid() {
-        String threeDigits = "\\d\\d\\d";
-        String fourDigits = "\\d\\d\\d\\d";
-        String areaCode = "\\(?" + threeDigits + "\\)?-?";
-        return phoneNumber.matches(areaCode + threeDigits + "-" + fourDigits);
+    private String digits(int num) {
+        return "\\d{" + num + "}";
+    }
+
+    public boolean isValid() {
+        String areaCode = "\\(?" + digits(3) + "\\)?-?";
+        return phoneNumber.matches(areaCode + digits(3) + "-" + digits(4));
     }
 }
