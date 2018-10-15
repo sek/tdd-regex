@@ -9,6 +9,6 @@ public class PhoneNumberMatcher {
     }
 
     boolean isValid() {
-        return phoneNumber.matches("\\d\\d\\d-\\d\\d\\d-\\d\\d\\d\\d");
+        return phoneNumber.matches("\\(?\\d\\d\\d\\)?-?\\d\\d\\d-\\d\\d\\d\\d");
     }
 }
