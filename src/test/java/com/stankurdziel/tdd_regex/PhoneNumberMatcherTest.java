@@ -16,7 +16,9 @@ public class PhoneNumberMatcherTest {
     @Test
     public void shouldMatchCountryCode() {
         assertTrue(new PhoneNumberMatcher("+1 858-555-1212").isValid());
+        assertTrue(new PhoneNumberMatcher("+01 858-555-1212").isValid());
         assertTrue(new PhoneNumberMatcher("+1-858-555-1212").isValid());
         assertTrue(new PhoneNumberMatcher("+1(858)555-1212").isValid());
+        assertFalse(new PhoneNumberMatcher("1(858)555-1212").isValid());
     }
 }

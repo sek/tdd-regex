@@ -14,6 +14,7 @@ public class PhoneNumberMatcher {
 
     public boolean isValid() {
         String areaCode = "\\(?" + digits(3) + "\\)?-?";
-        return phoneNumber.matches(areaCode + digits(3) + "-" + digits(4));
+        String countryCode = "(\\+\\d\\d?[ -]?)?";
+        return phoneNumber.matches(countryCode + areaCode + digits(3) + "-" + digits(4));
     }
 }
