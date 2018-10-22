@@ -4,17 +4,12 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class PhoneNumberMatcher {
-
-    private final String phoneNumber;
-    private final String regex;
     private final Matcher matcher;
 
     public PhoneNumberMatcher(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-
-        String areaCode = "\\(?(" + digits(3) + ")\\)?-?";
         String countryCode = "(\\+\\d\\d?[ -]?)?";
-        regex = countryCode + areaCode + digits(3) + "-" + digits(4);
+        String areaCode = "\\(?(" + digits(3) + ")\\)?-?";
+        String regex = countryCode + areaCode + digits(3) + "-" + digits(4);
         matcher = Pattern.compile(regex).matcher(phoneNumber);
     }
 
